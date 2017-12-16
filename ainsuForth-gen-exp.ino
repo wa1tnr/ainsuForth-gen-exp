@@ -3,25 +3,34 @@
 
 // SALAMANDER
 
+// An error related to SPI flashROM:
+
+//     E: fatfs.begin() fault.
 
 // ---------------------------------------------------------
-// If you have a problem look below in this file (currently
-// near Line 80) for the name of the file (and path) the
-// ainsuForth system expects to be found in the SPI flashROM.
+// If you have a problem look below in this file, first, as
+// it has some information of immediate use, with regard to
+// routine errors that may occur when the SPI flashROM chip
+// has not been initialized to the extent ainsuForth expects.
 //  
-// Currently it reads:
+// The (possibly) missing file is declared in getline.cpp:
 // 
 // 19 #define SPI_FlashROM_FILENAME "/forth/ascii_xfer_a001.txt"
 // 
-// and is a copy of a line from ./src/kernel/getline.cpp  which
-// should be the only live code that needs changing, if at all.
-// Most likely, that directory ('/forth') and that file,
-// ('ascii_xfer_a001.txt') are missing, if you are having that
-// sort of trouble this comment addresses.  It'll happen (if it
-// does) to new users unfamiliar with this odd convention: that
-// this file *must* be present and in this particular directory,
-// or the interactive portion of the program will not start correctly.
-// 16 December 2017.
+// When such a file is not found, it can cause ainsuForth
+// to misoperate.
+// 
+// Edit compatibility.h to avoid this issue entirely, by
+// disabling SPI flashROM use by ainsuForth.
+// 
+// In compatibility.h, this line decides if SPI flashROM support
+// is compiled in or not:
+
+// #define HAS_SPI_FLASH_DEMO
+
+// Currently, this is disabled by default, though during
+// active development it may have been forgotten (and
+// enabled).
 // ---------------------------------------------------------
 
 // Sun Dec 10 22:48:03 UTC 2017
@@ -92,6 +101,10 @@
 // 
 // f_mount failed with error code: 13
 // E: fatfs.begin() fault.
+
+// That error seems specific to an uninitialized SPI flashROM chip
+// (one that has been recently erased, removing the filesystem,
+// or one that was never initialized).
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

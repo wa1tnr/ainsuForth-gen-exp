@@ -1,11 +1,16 @@
-// Sat Dec 16 01:24:37 UTC 2017
-// 4737-a0a-00a-
+// Sat Dec 16 03:49:57 UTC 2017
+// 4737-a0a-00b-
 
 // ELKIND   HOKINO   SALAMANDER
 
-// An error related to SPI flashROM:
+// previous timestamp:
+// Sat Dec 16 01:24:37 UTC 2017   // 4737-a0a-00a-
+
+// An expected error can occur:
 
 //     E: fatfs.begin() fault.
+
+// It is related to uninitialized SPI flashROM.
 
 // ---------------------------------------------------------
 // If you have a problem look below in this file, first, as
@@ -33,8 +38,6 @@
 // enabled).
 // ---------------------------------------------------------
 
-// Sun Dec 10 22:48:03 UTC 2017
-// 4735-b0d-00b-   the -00x- is new Dec 10, 2017.
 
 // HELCUBIK  CANDALOX  TELURIXIANO  ELIAS NEKTUVIA
 
@@ -111,11 +114,9 @@
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 
-
-
-// REMI   MAKRIS   KETFILET   TAKKEV
-
-// previous timestamp:
+// more previous timestamps:
+// Sun Dec 10 22:48:03 UTC 2017
+// 4735-b0d-00b-   the -00x- is new Dec 10, 2017.
 
 // Sat Nov 25 19:03:16 UTC 2017
 // 4735-b0c-09d-   the -09x- is new Nov 24, 2017.

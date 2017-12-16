@@ -1,6 +1,29 @@
 // Sat Dec 16 01:24:37 UTC 2017
 // 4737-a0a-00a-
 
+
+
+
+// ---------------------------------------------------------
+// If you have a problem look below in this file (currently
+// near Line 80) for the name of the file (and path) the
+// ainsuForth system expects to be found in the SPI flashROM.
+//  
+// Currently it reads:
+// 
+// 19 #define SPI_FlashROM_FILENAME "/forth/ascii_xfer_a001.txt"
+// 
+// and is a copy of a line from ./src/kernel/getline.cpp  which
+// should be the only live code that needs changing, if at all.
+// Most likely, that directory ('/forth') and that file,
+// ('ascii_xfer_a001.txt') are missing, if you are having that
+// sort of trouble this comment addresses.  It'll happen (if it
+// does) to new users unfamiliar with this odd convention: that
+// this file *must* be present and in this particular directory,
+// or the interactive portion of the program will not start correctly.
+// 16 December 2017.
+// ---------------------------------------------------------
+
 // Sun Dec 10 22:48:03 UTC 2017
 // 4735-b0d-00b-   the -00x- is new Dec 10, 2017.
 

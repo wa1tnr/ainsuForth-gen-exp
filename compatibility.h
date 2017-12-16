@@ -37,7 +37,7 @@
 // CRYSTALLESS ARDUINO_SAMD_ZERO __SAMD21G18A__ ADAFRUIT_CIRCUITPLAYGROUND_M0
 
 // reverse these two lines to enable SPI flashROM support:
-#undef HAS_SPI_FLASH_DEMO
 #define HAS_SPI_FLASH_DEMO
+#undef HAS_SPI_FLASH_DEMO
 // load echo! remove download are relevant only to presence of SPI flashROM.
 

@@ -1,13 +1,18 @@
-// Sat Dec 16 01:24:37 UTC 2017
-// 4737-a0a-00a-
+// Mon Jan 15 18:14:33 UTC 2018
+// 4737-a0d-05c-
 
+// version bump
 
 // SPI flashROM stuff
 // look for #ifdef HAS_SPI_FLASH_DEMO   10 Dec 2017
 
 // the accept word
 
+
 // previous timestamps:
+
+// Sat Dec 16 01:24:37 UTC 2017
+// 4737-a0a-00a-
 // Sun Dec 10 22:48:03 UTC 2017
 // 4735-b0d-00b-   the -00x- is new Dec 10, 2017.
 // Sat Nov 25 19:03:16 UTC 2017

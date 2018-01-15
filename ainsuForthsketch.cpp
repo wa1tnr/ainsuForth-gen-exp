@@ -1,12 +1,15 @@
-// Sat Dec 16 01:24:37 UTC 2017
-// 4737-a0a-00a-
+// Mon Jan 15 18:14:33 UTC 2018
+// 4737-a0d-05c-
 
+// version bump
 
 // SPI_FLASH_DEMO defines verified.  Can run the program with uninitialized SPI flashROM.
-
 // _count() fix  (was earlier: _dot_paren() fix that wasn't broken, after all).
 
 // previous timestamps:
+// Sat Dec 16 01:24:37 UTC 2017
+// 4737-a0a-00a-
+
 // Sun Dec 10 22:48:03 UTC 2017
 // 4735-b0d-00b-   the -00x- is new Dec 10, 2017.
 

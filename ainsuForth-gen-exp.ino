@@ -1,9 +1,21 @@
-// Tue Jan 16 01:14:29 UTC 2018
-// 4737-a0d-05f-
+// Tue Jan 16 02:30:09 UTC 2018
+// 4737-a0d-05j-
 
 // CHACHARRE   PELGRUUT   KUSKIP   ELKIND   HOKINO
 
-// GOOD ON CPX.  UNTESTED ON ALL OTHERS.
+// GOOD ON Metro M0 Express.  Most likely fine on Trinket M0,
+// Feather M0 Express as well as CPX.  Needs additional tests
+// to confirm all that.
+
+// Only Gemma M0 is unconfigured and untested, now, of the five platforms.
+
+
+
+// Tue Jan 16 02:20:48 UTC 2018
+// 4737-a0d-05g-
+
+// GOOD ON CPX.  Seems fine on Trinket M0 and Feather M0 Express. Tue 16 Jan 02:20z
+
 
 // PREVIOUS VERSION:
 //     GOOD ON TRINKET M0 - FEATHER M0 EXPRESS only.

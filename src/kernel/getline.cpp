@@ -1,3 +1,6 @@
+// Tue Jan 16 02:30:09 UTC 2018
+// 4737-a0d-05j-
+
 // Tue Jan 16 01:14:29 UTC 2018
 // 4737-a0d-05f-
 
@@ -55,6 +58,9 @@
 
   #define FLASH_TYPE     SPIFLASHTYPE_W25Q16BV  // Flash chip type.
 
+#ifdef ADAFRUIT_METRO_M0_EXPRESS
+  #define FLASH_SS       SS1    // Flash chip SS pin.
+#endif
 
 #ifdef ADAFRUIT_CIRCUITPLAYGROUND_M0
   #undef FLASH_SS // lets see if the clause, below, picks this up
@@ -72,8 +78,12 @@
 
 // ------------------------ this was SPI   not    SPI1   ------ when did this change?
 
+#ifdef ADAFRUIT_METRO_M0_EXPRESS
+  #define FLASH_SPI_PORT      SPI1      // What SPI port is Flash on?
+#endif
+
 #ifdef ADAFRUIT_CIRCUITPLAYGROUND_M0
-  #undef FLASH_SPI_PORT // the fall-thru case may apply to us
+  #undef FLASH_SPI_PORT // the fall-thru appliea to us
 #endif
 
 #ifdef ADAFRUIT_FEATHER_M0_EXPRESS      // 15 Jan 2018

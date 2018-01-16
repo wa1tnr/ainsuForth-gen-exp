@@ -1,3 +1,6 @@
+// Tue Jan 16 02:30:09 UTC 2018
+// 4737-a0d-05j-
+
 // Tue Jan 16 01:14:29 UTC 2018
 // 4737-a0d-05f-
 
@@ -50,6 +53,10 @@
 
 #undef PIN
 
+#ifdef ADAFRUIT_METRO_M0_EXPRESS
+  #define PIN               40 // peculiar to Metro M0 Express.
+#endif
+
 #ifdef ADAFRUIT_CIRCUITPLAYGROUND_M0
   #define PIN                8 // peculiar to Circuit Playground Express and Feather M0 Express
 #endif
@@ -71,6 +78,10 @@
 // #define NUMPIXELS        10 // circuit playground Express
 
 #undef NUMPIXELS
+
+#ifdef ADAFRUIT_METRO_M0_EXPRESS
+  #define NUMPIXELS          1 // Metro M0 Express
+#endif
 
 #ifdef ADAFRUIT_CIRCUITPLAYGROUND_M0
   #define NUMPIXELS         10 // Circuit Playground Express

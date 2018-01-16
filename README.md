@@ -28,7 +28,19 @@ target board devices (subset of boards.txt found under
 
   .arduino15/packages/adafruit/hardware/samd/1.0.18/boards.txt )
 
+
 ----------------------------------------------------------------
+
+Current platform is the
+
+    Adafruit Feather M0 Express -- 15 January 2018.
+
+All other platform declarations are incorrect, where they differ
+from this one.
+
+----------------------------------------------------------------
+
+OLD:
 Current platform is the
     Adafruit CPX (Circuit Playground Express) - PRODUCT ID: 3333
 which is ATSAMD21 Cortex M0+ based.
@@ -43,9 +55,9 @@ tested on a (somewhat) rotating basis:
   * Adafruit Circuit Playground Express (which is also an M0 board)
   * Adafruit Gemma M0
 
-Sat Dec 16 01:40:00 UTC 2017
+Mon Jan 15 18:14:33 UTC 2018
 
-d44f3
+64a656eae2
 
 old:
 

@@ -1,7 +1,6 @@
-// Mon Jan 15 18:14:33 UTC 2018
-// 4737-a0d-05c-
+// Mon Jan 15 19:19:47 UTC 2018
+// 4737-a0d-05d-
 
-// version bump
 
 // previous timestamps:
 // Sat Dec 16 01:24:37 UTC 2017
@@ -43,5 +42,10 @@
 // reverse these two lines to enable SPI flashROM support:
 #define HAS_SPI_FLASH_DEMO
 #undef HAS_SPI_FLASH_DEMO
+
+#ifdef ADAFRUIT_FEATHER_M0_EXPRESS
+  #define HAS_SPI_FLASH_DEMO
+#endif // #ifdef ADAFRUIT_FEATHER_M0_EXPRESS
+
 // load echo! remove download are relevant only to presence of SPI flashROM.
 

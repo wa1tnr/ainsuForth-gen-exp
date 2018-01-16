@@ -1,7 +1,16 @@
+// Mon Jan 15 19:19:47 UTC 2018
+// 4737-a0d-05d-
+
 // Mon Jan 15 18:14:33 UTC 2018
 // 4737-a0d-05c-
 
-// version bump
+// Large reorg of conditional compilation.  No comment is reliable at the moment. - 15 Jan 2018
+
+
+
+
+
+
 
 // SPI_FLASH_DEMO defines verified.  Can run the program with uninitialized SPI flashROM.
 // _count() fix  (was earlier: _dot_paren() fix that wasn't broken, after all).
@@ -248,9 +257,10 @@ void setup(void) {
   pOldHere = pHere;
   
   // Serial.print("\n warm boot message - early bird.  //  Gemma M0 29 Jul 2017\r\n          type 'warm' to reboot"); // instant confirmation
-     Serial.print("\n warm boot message - early bird.  //  Adafruit CPlay Express (CPX)\r\n      DEVELOPMENT 03 Aug 2017\r\n          type 'warm' to reboot"); // instant confirmation
-     Serial.print("\n Sun Dec 10 22:48:03 UTC 2017");
-     Serial.print("\n 4735-b0d-00b-"); 
+     Serial.print("\n warm boot message - early bird.  \r\n      DEV - gen - exp 15 Jan 2018\r\n          type 'warm' to reboot"); // instant confirmation
+     Serial.print("\n Mon Jan 15 19:19:47 UTC 2018");
+     Serial.print("\n 4737-a0d-05d-"); 
+
 
   // Serial.print("\n warm boot message - early bird.  //  Adafruit Metro M0 Express\r\n      snapshot 30 Jul 2017\r\n          type 'warm' to reboot"); // instant confirmation
   // Serial.print("\n warm boot message - early bird.  //  Adafruit Feather M0 Express\r\n      snapshot 30 Jul 2017\r\n          type 'warm' to reboot"); // instant confirmation

@@ -1,3 +1,6 @@
+// Mon Jan 15 19:19:47 UTC 2018
+// 4737-a0d-05d-
+
 // Thu Aug  3 19:07:55 UTC 2017
 // 4735-b0f-00-
 
@@ -102,7 +105,13 @@ uint8_t getToken(void) {
                     int fake_Stri = 0; // nop
                     
               } else {
+
+
+#ifdef HAS_SPI_FLASH_DEMO // 15 Jan 2018
+
                   write_a_capture_file(); // this routine knows about cpSource
+
+#endif // 15 Jan 2018
               }
 
 

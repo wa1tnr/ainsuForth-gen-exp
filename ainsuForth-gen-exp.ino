@@ -1,9 +1,16 @@
+// Mon Jan 15 19:19:47 UTC 2018
+// 4737-a0d-05d-
+
+// GOOD ON TRINKET M0 - FEATHER M0 EXPRESS only.
+
+// Porting to the other M0 boards comes later. -15 Jan 2018
+
+// KUSKIP   ELKIND   HOKINO   SALAMANDER
+
+// previous timestamp:
 // Mon Jan 15 18:14:33 UTC 2018
 // 4737-a0d-05c-
 
-// ELKIND   HOKINO   SALAMANDER
-
-// previous timestamp:
 // Sat Dec 16 03:49:57 UTC 2017
 // 4737-a0a-00b-
 

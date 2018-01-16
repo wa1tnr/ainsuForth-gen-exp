@@ -1,3 +1,7 @@
+// Mon Jan 15 19:19:47 UTC 2018
+// 4737-a0d-05d-
+
+// previous timestamp:
 // Wed Aug  2 01:22:51 UTC 2017
 // 4735-b0c-03-
 
@@ -53,7 +57,7 @@ void signOn(void) {
     Serial.print("\064\064"); // 44 - blue bg
     Serial.print("m");        // for the stanza
 
-    Serial.print("  ainsuForth - 2017 - wa1tnr  ");
+    Serial.print("  ainsuForth - 2018 - wa1tnr  ");
 
     Serial.print("\033\133"); // ESC [
     Serial.print("\064\060"); // 40 - black bg

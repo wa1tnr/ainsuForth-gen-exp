@@ -1,7 +1,9 @@
+// Mon Jan 15 19:19:47 UTC 2018
+// 4737-a0d-05d-
+
 // Mon Jan 15 18:14:33 UTC 2018
 // 4737-a0d-05c-
 
-// version bump
 
 // Fri Nov 24 23:31:39 UTC 2017
 // 4735-b0c-09b-   the -09x- is new Nov 24, 2017.
@@ -21,7 +23,21 @@
 // 4735-b0f-00-
 
 // macro to name the file read or written to SPI flashROM.
+// #ifdef HAS_SPI_FLASH_DEMO // 15 Jan 2018
 #define SPI_FlashROM_FILENAME "/forth/ascii_xfer_a001.txt"
+// #endif
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+// 16 January 2018 00:24z:
+// 
+// The SPI flashROM *must* be pre-initialized by some other
+// program.  The root directory *must* have a subdirectory
+// named '/forth' (unless you change the hard-coded path,
+// named above, and carry out any needed adjustments).
+// The directory '/forth' does *not* have to have the named
+// file present ('ascii_xfer_a001.txt') as it will be created
+// the first time the 'download' word is used.
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 #include <Arduino.h>
 #include "../../yaffa.h"
@@ -30,17 +46,41 @@
 #ifdef EXT_KERN_GETLINE
 #include "getline.h"
 
-#include <SPI.h>
-#include <Adafruit_SPIFlash.h>
-#include <Adafruit_SPIFlash_FatFs.h>
+#ifdef HAS_SPI_FLASH_DEMO // 15 Jan 2018
+  #include <SPI.h>
+  #include <Adafruit_SPIFlash.h>
+  #include <Adafruit_SPIFlash_FatFs.h>
 
-#define FLASH_TYPE     SPIFLASHTYPE_W25Q16BV  // Flash chip type.
-#define FLASH_SS       SS                    // Flash chip SS pin.
-#define FLASH_SPI_PORT SPI                   // What SPI port is Flash on?
+  #define FLASH_TYPE     SPIFLASHTYPE_W25Q16BV  // Flash chip type.
 
-Adafruit_SPIFlash flash(FLASH_SS, &FLASH_SPI_PORT);     // Use hardware SPI 
 
-Adafruit_W25Q16BV_FatFs fatfs(flash);
+
+#ifdef ADAFRUIT_FEATHER_M0_EXPRESS // 15 Jan 2018
+  #define FLASH_SS       SS1    // Flash chip SS pin.
+#else
+  #define FLASH_SS       SS     // Flash chip SS pin for other boards UNPROVEN HERE - RESEARCH THIS
+#endif // 15 Jan 2018
+
+
+
+// ------------------------ this was SPI   not    SPI1   ------ when did this change?
+
+#ifdef ADAFRUIT_FEATHER_M0_EXPRESS // 15 Jan 2018
+  #define FLASH_SPI_PORT SPI1      // What SPI port is Flash on?
+#else
+  #define FLASH_SPI_PORT SPI       // other boards may require SPI rather than SPI1 here - RESEARCH THIS
+#endif // 15 Jan 2018
+
+// ------------------------ this was SPI   not    SPI1   ------ when did this change?
+
+
+
+
+  Adafruit_SPIFlash flash(FLASH_SS, &FLASH_SPI_PORT);     // Use hardware SPI 
+
+  Adafruit_W25Q16BV_FatFs fatfs(flash);
+
+#endif // 15 Jan 2018
 
 /******************************************************************************/
 /** getDLKey                                                                 **/
@@ -52,6 +92,7 @@ Adafruit_W25Q16BV_FatFs fatfs(flash);
 /**   Tab, Newline (0x0a) and standard (printable) characters                **/
 /******************************************************************************/
 
+#ifdef HAS_SPI_FLASH_DEMO // 15 Jan 2018
 void setup_spi_flash(void) {
   // Serial.println("SPI Flash - reading");
   if (!flash.begin(FLASH_TYPE)) {
@@ -59,14 +100,21 @@ void setup_spi_flash(void) {
     while(1);
   }
   // Serial.print("Flash chip JEDEC ID: 0x"); Serial.println(flash.GetJEDECID(), HEX);
+  Serial.print("Flash chip JEDEC ID: 0x");
+  Serial.println(flash.GetJEDECID(), HEX);
+  // Serial.println("Line 095 seen.");
+  // Serial.println(" want to see a message that says: Flash chip JEDEC ID: 0x1401501\r\n");
 
   if (!fatfs.begin()) {
-    Serial.println("E: fatfs.begin() fault.");
-    // Serial.println("Was the flash chip formatted with the fatfs_format example?");
+    Serial.println("E: fatfs.begin() fault.  LINE 099");
+    Serial.print("Can haz ");
+    Serial.println(SPI_FlashROM_FILENAME);
+    Serial.println("Was the flash chip formatted with the fatfs_format example?");
     while(1);
   }
   // Serial.println("fatfs is mounted.");
 }
+#endif // 15 Jan 2018
 
 
 /******************************************************************************/
@@ -77,7 +125,9 @@ void setup_spi_flash(void) {
 /**   and Returns the length of the string stored                            **/
 /******************************************************************************/
 
+#ifdef HAS_SPI_FLASH_DEMO // 15 Jan 2018
 File thisFile;
+#endif // 15 Jan 2018
 
 uint8_t getLine(char* ptr, uint8_t buffSize) {
   char inChar;
@@ -85,6 +135,7 @@ uint8_t getLine(char* ptr, uint8_t buffSize) {
 
   // if (fileClosed) { Serial.println("Indeed, fileClosed is TRUE"); }
 
+#ifdef HAS_SPI_FLASH_DEMO // 15 Jan 2018
   if (spiFlashReading) {
       // cheap_test: if (fatfs.exists("/forth/job.fs")) {
       if (fatfs.exists(SPI_FlashROM_FILENAME)) {
@@ -98,10 +149,12 @@ uint8_t getLine(char* ptr, uint8_t buffSize) {
           }
       }
   }
+#endif // 15 Jan 2018
 
 
 // another getLine() stanza:
   do {
+#ifdef HAS_SPI_FLASH_DEMO // 15 Jan 2018
     if (spiFlashReading) {
         if (thisFile) {
             if (thisFile.available()) {
@@ -119,6 +172,7 @@ uint8_t getLine(char* ptr, uint8_t buffSize) {
         }
 
     } else {
+#endif // 15 Jan 2018
 
         if (noInterpreter) {
             inChar = getKey();
@@ -128,7 +182,9 @@ uint8_t getLine(char* ptr, uint8_t buffSize) {
         } else {
             inChar = getKey(); 
         }
+#ifdef HAS_SPI_FLASH_DEMO // 15 Jan 2018
     }
+#endif // 15 Jan 2018
 
     // inChar is now populated; either by keypress or by byte stored in SPI flash.
 
@@ -374,17 +430,19 @@ void create_test_directory(void) {
 
 #ifndef HAS_STANDARD_BUILD_HERE
 
+#ifdef HAS_SPI_FLASH_DEMO // 15 Jan 2018
   if (!fatfs.exists("/test")) { Serial.println("BAD ROBOT - fatfs.exists fails on line 97.");
   } else {
     Serial.println("local: assuming test directory already exists.");
   }
+#endif // 15 Jan 2018
 
 #endif
 }
 
 
+#ifdef HAS_SPI_FLASH_DEMO // 15 Jan 2018
 void remove_a_file(void) {
-
   Serial.print("file: Deleting ");
   Serial.print(SPI_FlashROM_FILENAME);
   Serial.println("...");
@@ -413,7 +471,9 @@ void remove_a_file(void) {
   writeFile.close(); // housekeeping.
   }
 }
+#endif // 15 Jan 2018
 
+#ifdef HAS_SPI_FLASH_DEMO // 15 Jan 2018
 void write_a_capture_file(void) {
   // Create a file in the test directory and write data to it.
   // Note the FILE_WRITE parameter which tells the library you intend to
@@ -440,8 +500,6 @@ void write_a_capture_file(void) {
   // Once open for writing you can print to the file as if you're printing
   // to the serial terminal, the same functions are available.
 
-
-
 // payload -- download mode.
 
 // model: Serial.print(cpSource);
@@ -451,21 +509,16 @@ void write_a_capture_file(void) {
   writeFile.close();
   // debug: // Serial.println("Wrote -- appended -- to file /forth/ascii_xfer_test.txt!");
 }
-
-
-
-
-
-
-
+#endif // 15 Jan 2018
 
 
 #ifndef HAS_STANDARD_BUILD_HERE
+
+#ifdef HAS_SPI_FLASH_DEMO // 15 Jan 2018
 void read_a_test_file(void) {
   // Now open the same file but for reading.
   // cheap_test: File readFile = fatfs.open("/forth/job.fs",             FILE_READ);
   File readFile = fatfs.open(SPI_FlashROM_FILENAME, FILE_READ);
-
   if (!readFile) {
     // cheap_test: Serial.println("Error, failed to open job.fs for reading!");
     // Serial.println("Error, failed to open /forth/ascii_xfer_test.txt for reading!");
@@ -474,7 +527,6 @@ void read_a_test_file(void) {
     Serial.println(" for reading!");
     while(1);
   }
-
   // Read data using the same read, find, readString, etc. functions as when using
   // the serial class.  See SD library File class for more documentation:
   //   https://www.arduino.cc/en/reference/SD
@@ -483,14 +535,11 @@ void read_a_test_file(void) {
   // cheap_test: Serial.print("First line of job.fs: "); Serial.println(line);
   Serial.print("First line of ");
   Serial.print(SPI_FlashROM_FILENAME);
-
   Serial.println(line);
-
   // You can get the current position, remaining data, and total size of the file:
   Serial.print("Ignore job.fs and say ");
   Serial.print(SPI_FlashROM_FILENAME);
   Serial.print(" here - several lines.");
-
   Serial.print("Total size of job.fs (bytes): "); Serial.println(readFile.size(), DEC);
   Serial.print("Current position in job.fs: "); Serial.println(readFile.position(), DEC);
   Serial.print("Available data to read in job.fs: "); Serial.println(readFile.available(), DEC);
@@ -517,8 +566,10 @@ void read_a_test_file(void) {
   // Close the file when finished reading.
   readFile.close();
 }
+#endif // 15 Jan 2018
 #endif
 
+#ifdef HAS_SPI_FLASH_DEMO // 15 Jan 2018
 
 
 #ifndef HAS_STANDARD_BUILD_HERE
@@ -560,16 +611,38 @@ void read_from_code_py_file(void) {
   // Close the file when finished reading.
   readCodeFile.close();
 }
+#endif // 15 Jan 2018
 #endif
 
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// #endif // 15 Jan 2018
+
+
+#ifdef HAS_SPI_FLASH_DEMO // 15 Jan 2018
 void tail_code_bb(void) {
   // You can open a directory to list all the children (files and directories).
   // Just like the SD library the File type represents either a file or directory.
-
-
 #ifndef HAS_STANDARD_BUILD_HERE
   File testDirRoot = fatfs.open("/");
   if (!testDirRoot) {
@@ -579,7 +652,6 @@ void tail_code_bb(void) {
     Serial.println("Made it past the opening of the root directory.");
   }
 #endif
-
 
 #ifdef HAS_STANDARD_BUILD_HERE
   File testDir = fatfs.open("/lib");
@@ -591,8 +663,6 @@ void tail_code_bb(void) {
   }
 #endif
 
-
-
 #ifndef HAS_STANDARD_BUILD_HERE
   if (!testDirRoot.isDirectory()) {
     Serial.println("Error, expected root to be a directory!");
@@ -602,7 +672,6 @@ void tail_code_bb(void) {
   }
 #endif
 
-
 #ifdef HAS_STANDARD_BUILD_HERE
   if (!testDir.isDirectory()) {
     Serial.println("Error, expected /lib to be a directory!");
@@ -611,8 +680,6 @@ void tail_code_bb(void) {
     Serial.println("Good - /lib is a directory - not a file.  Continue.");
   }
 #endif
-
-
 
 #ifndef HAS_STANDARD_BUILD_HERE
   Serial.println("Listing children of root directory:");
@@ -705,6 +772,72 @@ void tail_code_bb(void) {
 #endif
 
 }
+#endif // 15 Jan 2018
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 void ascii_xfer_spi_flash_main(void) {
   // SHOULD NOT BE NEEDED 06 AUG: ascii_xfer_setup_spi_flash();

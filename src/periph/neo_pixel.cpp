@@ -1,7 +1,9 @@
+// Mon Jan 15 19:19:47 UTC 2018
+// 4737-a0d-05d-
+
 // Mon Jan 15 18:14:33 UTC 2018
 // 4737-a0d-05c-
 
-// version bump
 
 // Tue Jul 25 07:27:48 UTC 2017
 // 4735-b0a-09-
@@ -36,13 +38,41 @@
 
 
 // Which pin on the Arduino is connected to the NeoPixels?
-// #define PIN               40 // peculiar to Metro M0 Express.  Feather M0 Express: PIN 8
-// #define PIN             8 // peculiar to Feather M0 Express.  Metro M0 Express: PIN 40
-#define PIN             8 // circuit playground Express
+// #define PIN              40 // peculiar to Metro M0 Express.  Feather M0 Express: PIN 8
+// #define PIN               8 // peculiar to Feather M0 Express.  Metro M0 Express: PIN 40
+// #define PIN               8 // circuit playground Express
+#undef PIN
+
+#ifdef ADAFRUIT_FEATHER_M0_EXPRESS
+  #define PIN                8 // peculiar to Feather M0 Express
+#endif // 15 Jan 2018
+
+#ifdef ADAFRUIT_TRINKET_M0
+  #define PIN                1 // arbitrary assignment? Trinket M0
+#else
+  #ifndef PIN // sieve fall-through clause
+    #define PIN              2 // arbitrary assignment to non-specific board
+  #endif
+#endif // 15 Jan 2018
+
 
 // How many NeoPixels are attached to the Arduino?
-#define NUMPIXELS      10 // circuit playground Express
-// #define NUMPIXELS      1 // other Adafruit SAMD21 boards
+// #define NUMPIXELS        10 // circuit playground Express
+
+#undef NUMPIXELS
+
+#ifdef ADAFRUIT_FEATHER_M0_EXPRESS
+#define NUMPIXELS            1 // Not zero - some other define can remove this code entirely
+#endif // 15 Jan 2018
+
+// local condition: NeoPixel 8 strip connected to Trinket M0:
+#ifdef ADAFRUIT_TRINKET_M0
+  #define NUMPIXELS          8 // NeoPixel strip 8x
+#else
+    #ifndef NUMPIXELS          // sieve fall-through clause
+       #define NUMPIXELS     1 // other Adafruit SAMD21 boards
+    #endif                     // Not zero - some other define can remove this code entirely
+#endif // 15 Jan 2018
 
 // When we setup the NeoPixel library, we tell it how many pixels,
 // and which pin to use to send signals.

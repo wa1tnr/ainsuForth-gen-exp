@@ -1,8 +1,11 @@
-// Mon Jan 15 19:19:47 UTC 2018
-// 4737-a0d-05d-
+// Tue Jan 16 01:14:29 UTC 2018
+// 4737-a0d-05f-
 
 
 // previous timestamps:
+// Mon Jan 15 19:19:47 UTC 2018
+// 4737-a0d-05d-
+
 // Sat Dec 16 01:24:37 UTC 2017
 // 4737-a0a-00a-
 
@@ -46,6 +49,10 @@
 #ifdef ADAFRUIT_FEATHER_M0_EXPRESS
   #define HAS_SPI_FLASH_DEMO
 #endif // #ifdef ADAFRUIT_FEATHER_M0_EXPRESS
+
+#ifdef ADAFRUIT_CIRCUITPLAYGROUND_M0
+  #define HAS_SPI_FLASH_DEMO
+#endif // #ifdef ADAFRUIT_CIRCUITPLAYGROUND_M0
 
 // load echo! remove download are relevant only to presence of SPI flashROM.
 

@@ -1,9 +1,11 @@
+// Tue Jan 16 01:14:29 UTC 2018
+// 4737-a0d-05f-
+
 // Mon Jan 15 19:19:47 UTC 2018
 // 4737-a0d-05d-
 
 // Mon Jan 15 18:14:33 UTC 2018
 // 4737-a0d-05c-
-
 
 // Fri Nov 24 23:31:39 UTC 2017
 // 4735-b0c-09b-   the -09x- is new Nov 24, 2017.
@@ -54,21 +56,32 @@
   #define FLASH_TYPE     SPIFLASHTYPE_W25Q16BV  // Flash chip type.
 
 
+#ifdef ADAFRUIT_CIRCUITPLAYGROUND_M0
+  #undef FLASH_SS // lets see if the clause, below, picks this up
+#endif
 
 #ifdef ADAFRUIT_FEATHER_M0_EXPRESS // 15 Jan 2018
   #define FLASH_SS       SS1    // Flash chip SS pin.
 #else
-  #define FLASH_SS       SS     // Flash chip SS pin for other boards UNPROVEN HERE - RESEARCH THIS
+  #ifndef FLASH_SS
+    #define FLASH_SS     SS     // Flash chip SS pin for other boards UNPROVEN HERE - RESEARCH THIS
+  #endif
 #endif // 15 Jan 2018
 
 
 
 // ------------------------ this was SPI   not    SPI1   ------ when did this change?
 
-#ifdef ADAFRUIT_FEATHER_M0_EXPRESS // 15 Jan 2018
-  #define FLASH_SPI_PORT SPI1      // What SPI port is Flash on?
+#ifdef ADAFRUIT_CIRCUITPLAYGROUND_M0
+  #undef FLASH_SPI_PORT // the fall-thru case may apply to us
+#endif
+
+#ifdef ADAFRUIT_FEATHER_M0_EXPRESS      // 15 Jan 2018
+  #define FLASH_SPI_PORT      SPI1      // What SPI port is Flash on?
 #else
-  #define FLASH_SPI_PORT SPI       // other boards may require SPI rather than SPI1 here - RESEARCH THIS
+  #ifndef FLASH_SPI_PORT
+    #define FLASH_SPI_PORT     SPI      // other boards may require SPI rather than SPI1 here - RESEARCH THIS
+  #endif
 #endif // 15 Jan 2018
 
 // ------------------------ this was SPI   not    SPI1   ------ when did this change?

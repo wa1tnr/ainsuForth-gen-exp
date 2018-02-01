@@ -1,3 +1,8 @@
+// Wed Jan 31 00:27:18 UTC 2018
+// 4737-a0e-01a-
+
+
+
 // Tue Jan 16 02:30:09 UTC 2018
 // 4737-a0d-05j-
 
@@ -268,10 +273,9 @@ void setup(void) {
   pOldHere = pHere;
   
   // Serial.print("\n warm boot message - early bird.  //  Gemma M0 29 Jul 2017\r\n          type 'warm' to reboot"); // instant confirmation
-     Serial.print("\n warm boot message - early bird.  \r\n PELGRUUT  DEV - gen-exp  16 Jan 2018\r\n          type 'warm' to reboot"); // instant confirmation
-     Serial.print("\n Tue Jan 16 01:14:29 UTC 2018");
-     Serial.print("\n 4737-a0d-05f-"); 
-
+     Serial.print("\n warm boot message - early bird.  \r\n MALAMUTE  DEV - gen-exp  31 Jan 2018\r\n          type 'warm' to reboot"); // instant confirmation
+     Serial.print("\n Wed Jan 31 00:27:18 UTC 2018");
+     Serial.print("\n 4737-a0e-01a-");
 
   // Serial.print("\n warm boot message - early bird.  //  Adafruit Metro M0 Express\r\n      snapshot 30 Jul 2017\r\n          type 'warm' to reboot"); // instant confirmation
   // Serial.print("\n warm boot message - early bird.  //  Adafruit Feather M0 Express\r\n      snapshot 30 Jul 2017\r\n          type 'warm' to reboot"); // instant confirmation

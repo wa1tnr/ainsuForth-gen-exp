@@ -1,7 +1,14 @@
-// Tue Jan 16 02:30:09 UTC 2018
-// 4737-a0d-05j-
+// Wed Jan 31 00:27:18 UTC 2018
+// 4737-a0e-01a-
 
-// CHACHARRE   PELGRUUT   KUSKIP   ELKIND   HOKINO
+// MALAMUTE   CHACHARRE   PELGRUUT   KUSKIP
+
+// SEE ALSO:
+//   m0_interpreter_uart -- this gained the next shred in series
+//   on 31 Jan 2018.  When incrementing ainsuForth-gen-exp shred
+//   in (immediate) future, please take this into account.
+
+
 
 // GOOD ON Metro M0 Express.  Most likely fine on Trinket M0,
 // Feather M0 Express as well as CPX.  Needs additional tests
@@ -10,6 +17,10 @@
 // Only Gemma M0 is unconfigured and untested, now, of the five platforms.
 
 
+// previous timestamps:
+
+// Tue Jan 16 02:30:09 UTC 2018
+// 4737-a0d-05j-
 
 // Tue Jan 16 02:20:48 UTC 2018
 // 4737-a0d-05g-
@@ -22,7 +33,6 @@
 //     Porting to the other M0 boards comes later. -15 Jan 2018
 
 
-// previous timestamp:
 // Mon Jan 15 19:19:47 UTC 2018
 // 4737-a0d-05d-
 

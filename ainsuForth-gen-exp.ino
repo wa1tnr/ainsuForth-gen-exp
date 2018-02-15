@@ -1,6 +1,17 @@
 // Wed Jan 31 00:27:18 UTC 2018
 // 4737-a0e-01a-
 
+// kandra
+
+// .arduino15/packages/adafruit/hardware/samd/1.0.21/variants/feather_m0_express/variant.h
+// that's the location that gave D29 and D30 correctly.  15 Feb 2018d
+
+// SCK is on D30  -- ainsuForth can use pinMode and pinWrite on '30'.
+// MOSI is on D29
+
+// confirmed: ST7565 can run on MOSI and SCK when referred to as 29 and 30 in the regular
+//                   adafruit  arduino  ST7565 driver.  15 Feb 2018 15:48 UTC
+
 // MALAMUTE   CHACHARRE   PELGRUUT   KUSKIP
 
 // SEE ALSO:

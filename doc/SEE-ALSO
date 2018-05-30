@@ -1,0 +1,27 @@
+Wed 30 May 20:29:24 UTC 2018
+
+ SEE AlSO:
+
+    ainsuForth-gen-exp-crkt
+
+    $ git clone https://github.com/wa1tnr/ainsuForth-gen-exp-crkt.git
+
+    This is a slight variant of ainsuForth biased towards
+    use with Crickit (CPX variant; the first Crickit board
+    from Adafruit)
+
+    D37 is the internal LED, when compiled against ItsyBitsyM0 in Arduino IDE.
+
+    See that repository for the rest of the pinouts in this configuration.
+
+Quick test (load the other repository; then compile against ItsyBitsyM0) and type:
+
+: crkLED 37 ;
+: OUTPUT 1 ;
+: HIGH 1 ;
+: LOW 0 ;
+: blink OUTPUT crkLED pinMode HIGH crkLED pinWrite 500 delay LOW crkLED pinWrite 500 delay ;
+blink blink blink
+
+
+END.

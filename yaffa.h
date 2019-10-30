@@ -1,8 +1,12 @@
+// Wed Oct 30 18:57:28 UTC 2019
+// 4737-a3d-00a- // ainsuForth-gen-exp
+
+// On branch testing-aa- / pre-release of 0.1.0
+
 // Mon Jan 15 18:14:33 UTC 2018
 // 4737-a0d-05c-
 
 // version bump
-
 
 // Sat Nov 25 19:03:16 UTC 2017
 // 4735-b0c-09d-   the -09x- is new Nov 24, 2017.
@@ -14,9 +18,9 @@
 
 // 29 July -- not proofread very well.  Needs testing.  See diff.
 
-#include "compatibility.h" # ainsuForth selection of target board
+#include "compatibility.h" // ainsuForth selection of target board
 
-#define AINSU_ON_ADAFRUIT_GEMMA
+// #define AINSU_ON_ADAFRUIT_GEMMA // clarify this was not in use 30 Oct 2019
 
 /**  YAFFA - Yet Another Forth for Arduino                                   **/
 // scroll to end of file for intellectual property notices - wa1tnr

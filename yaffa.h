@@ -33,8 +33,8 @@
 
 // -------  use this to switch between them   ---------
 
-#undef NEO_PIXEL_LIB_ENABLED  // swap these two
 #define NEO_PIXEL_LIB_ENABLED // swap these two
+#undef NEO_PIXEL_LIB_ENABLED  // swap these two
 
 // -------  use this to switch between them   ---------
 

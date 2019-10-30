@@ -1,18 +1,28 @@
+// Wed Oct 30 18:57:28 UTC 2019
+// 4737-a3d-00a- // ainsuForth-gen-exp
+
+// On branch testing-aa- / pre-release of 0.1.0
+
+// NOTE - the sketch.cpp file (this file) serves the exact
+// same purpose as the (more usual) sketch.ino file does,
+// in a standard Arduino sketch.
+
+// Currently, sketch.cpp is renamed to ainsuForthsketch.cpp for
+// rapid identification, while maintaining some uniqueness. ;)
+
+// In the present scheme, the standard sketch.ino type file
+// remains unpopulated (and currently only contains comments).
+
+// This is correct and normal, for this repository. ;)
+// wa1tnr
+// 30 October 2019
+
 // Wed Jan 31 00:27:18 UTC 2018
 // 4737-a0e-01a-
 
 
-
 // Tue Jan 16 02:30:09 UTC 2018
 // 4737-a0d-05j-
-
-
-// Tue Jan 16 02:20:48 UTC 2018
-// 4737-a0d-05g-
-
-
-// Tue Jan 16 01:14:29 UTC 2018
-// 4737-a0d-05f-
 
 // Mon Jan 15 19:19:47 UTC 2018
 // 4737-a0d-05d-
@@ -44,6 +54,9 @@
 // Sun Aug  6 20:09:53 UTC 2017
 // 4735-b0f-03-
 
+#include <Arduino.h>
+#include "yaffa.h"
+
 // poor practice -- hard coded the answer:
 #ifdef HAS_DOTSTAR_LIB
 // d#ifndef HAS_DOTSTAR_LIB
@@ -57,12 +70,11 @@
 #include "src/kernel/getline.h"
 
 
+
 #ifdef HAS_DOTSTAR_LIB
 #include "src/periph/dotstar.h"
 #endif
 
-#include <Arduino.h>
-#include "yaffa.h"
 #include "ainsuForthsketch.h"
 #include "src/periph/neo_pixel.h"
 #include "src/dict/cblink.h"

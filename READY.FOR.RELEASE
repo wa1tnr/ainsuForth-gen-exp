@@ -1,0 +1,42 @@
+Release: 0.1.0 testing-aa-  shred: 4737-a3d-00a-
+
+Wed Oct 30 18:57:28 UTC 2019
+
+On branch testing-aa-
+
+Wed Oct 30 18:57:28 UTC 2019 0.1.0 testing-aa-  shred: 4737-a3d-00a-
+
+commit c5d1558cf4bbf50cb334c0123a25dcdc35abac91
+Author: wa1tnr
+Date:   Wed Oct 30 19:46:31 2019 +0000
+
+    default no NEO_PIXEL support
+
+warm
+ warm boot message - early bird.
+ KAN-MALAMUTE  DEV - gen-exp  30 Oct 2019
+          type 'warm' to reboot
+ Wed Oct 30 18:57:28 UTC 2019   Trinket M0 default +DotStar
+ 4737-a3d-00a-
+
+     ainsuForth - 2019 October - wa1tnr    words: 80
+         YAFFA - Yet Another Forth For Arduino,
+         Copyright (C) 2012 Stuart Wood
+
+This release is the very first (in October, 2019).
+
+Currently expects Trinket M0 as the target board.
+Limited support for other boards - untested and
+is stale code/project (hasn't seen new development
+in more than a year).
+
+Derivative work: ainsuForth-gen-exp-m4 (continuing).
+That repository, though named with 'm4' should generally
+be compatible with M0 targets as well, so long as they
+also have SPI flashROM chips (external to the MCU) on
+the target boards (aka 'Express' boards from Adafruit).
+
+This (very repository) then, is oriented towards the
+M0 non-express boards, such as Feather M0, Trinket M0
+and Gemma M0.  Currently only tested (October 2019)
+against Trinket M0.

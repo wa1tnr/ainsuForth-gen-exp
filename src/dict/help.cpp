@@ -18,7 +18,8 @@ const char who_str[] = "who";
 void _who(void) {
   // hex 1d10 dup 48 dump
   // _hex();
-  dStack_push(0x1d10); // nothing sacred, experiment!  YMMV.
+  // 0x1d30 Trinket M0   0x1d10 - probably for Gemma M0
+  dStack_push(0x1d30); // nothing sacred, experiment!  YMMV.
   _dupe();
   dStack_push(0x50);
   _dump();

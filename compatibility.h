@@ -1,11 +1,14 @@
+// Wed Oct 30 18:57:28 UTC 2019
+// 4737-a3d-00a- // ainsuForth-gen-exp
+
+// On branch testing-aa- / pre-release of 0.1.0
+
+// adafruit_trinket_m0.build.extra_flags=-DCRYSTALLESS -DADAFRUIT_TRINKET_M0 -D__SAMD21E18A__ -DARM_MATH_CM0PLUS {build.usb_flags}
+
+// previous timestamps:
 // Tue Jan 16 02:30:09 UTC 2018
 // 4737-a0d-05j-
 
-// Tue Jan 16 01:14:29 UTC 2018
-// 4737-a0d-05f-
-
-
-// previous timestamps:
 // Mon Jan 15 19:19:47 UTC 2018
 // 4737-a0d-05d-
 
@@ -48,6 +51,10 @@
 // reverse these two lines to enable SPI flashROM support:
 #define HAS_SPI_FLASH_DEMO
 #undef HAS_SPI_FLASH_DEMO
+
+#ifdef ADAFRUIT_TRINKET_M0
+  #define HAS_DOTSTAR_LIB
+#endif // #ifdef ADAFRUIT_TRINKET_M0
 
 #ifdef ADAFRUIT_FEATHER_M0_EXPRESS
   #define HAS_SPI_FLASH_DEMO

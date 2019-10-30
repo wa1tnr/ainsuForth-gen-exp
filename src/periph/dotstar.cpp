@@ -1,7 +1,10 @@
+// Wed Oct 30 18:57:28 UTC 2019
+// 4737-a3d-00a- // ainsuForth-gen-exp
+
+// On branch testing-aa- / pre-release of 0.1.0
+
 // Mon Jan 15 18:14:33 UTC 2018
 // 4737-a0d-05c-
-
-// version bump
 
 // Sat Jul 29 18:14:02 UTC 2017
 // 4735-b0b-01-
@@ -10,8 +13,9 @@
 
 #define NUMPIXELS 1 // Number of LEDs in strip
 
-#define DATAPIN    3
-#define CLOCKPIN   4
+// pinouts for Trinket M0 dotstar are now the defaults, 30 October 2019:
+#define DATAPIN    7 // #define DATAPIN    3  // D3 is probably for Gemma M0, unchecked
+#define CLOCKPIN   8 // #define CLOCKPIN   4  // D4 is probably for Gemma M0, unchecked
 
 Adafruit_DotStar strip = Adafruit_DotStar(
   NUMPIXELS, DATAPIN, CLOCKPIN, DOTSTAR_BRG);

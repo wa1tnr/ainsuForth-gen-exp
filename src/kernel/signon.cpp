@@ -1,13 +1,17 @@
+// Wed Oct 30 18:57:28 UTC 2019
+// 4737-a3d-00a- // ainsuForth-gen-exp
+
+// On branch testing-aa- / pre-release of 0.1.0
+
+// previous timestamps:
 // Mon Jan 15 19:19:47 UTC 2018
 // 4737-a0d-05d-
 
-// previous timestamp:
 // Wed Aug  2 01:22:51 UTC 2017
 // 4735-b0c-03-
 
 #include <Arduino.h>
 #include "../../yaffa.h"
-// #include "../../Error_Codes.h"
 
 #ifdef EXT_KERN_SIGN_ON
 #include "signon.h"
@@ -15,12 +19,6 @@
 /** signOn - say Hello to the user interface via USB serial port             **/
 /******************************************************************************/
 void signOn(void) {
-  // Serial.begin(19200);     // Open serial communications:
-
-  // Serial.print("\n warm boot message - early bird."); // instant confirmation
-
-  // delay(9 * 100);
-
   // colours - entirely optional
   Serial.print("\033\133"); // ESC [
   Serial.print("\063\063"); // 33 - yellow fg
@@ -57,7 +55,7 @@ void signOn(void) {
     Serial.print("\064\064"); // 44 - blue bg
     Serial.print("m");        // for the stanza
 
-    Serial.print("  ainsuForth - 2018 - wa1tnr  ");
+    Serial.print("  ainsuForth - 2019 October - wa1tnr  ");
 
     Serial.print("\033\133"); // ESC [
     Serial.print("\064\060"); // 40 - black bg
